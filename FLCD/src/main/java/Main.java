@@ -1,10 +1,69 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] argv) {
-        String[] codeLine = {"define","number","number1","=","10",";"};
+    private static String[] codeLine;
+
+    public static void main(String[] argv) throws IOException {
+        codeLine = new String[]{"define", "number", "nr1", "=", "10", ";"};
         Tree tree = new Tree();
-        for (int i = 0; i < codeLine.length; i++)
-            tree.insert(codeLine[i]);
+        for (String s : codeLine) tree.insert(s);
         tree.inorderTraversal();
         System.out.println();
+        detect();
+    }
+
+    public static void detect() throws IOException {
+        File f1 = new File("C:\\Users\\fast\\IdeaProjects\\FLCD\\src\\main\\java\\token.in"); //Creation of File Descriptor for input file
+        String[] words = null;  //Initialize the word Array
+        FileReader fr = new FileReader(f1);  //Creation of File Reader object
+        BufferedReader br = new BufferedReader(fr);//Creation of BufferedReader object
+
+        for (int i = 0; i < codeLine.length; i++) {
+
+            String s;
+            String input = codeLine[i];   // Input word to be searched
+            int count = 0;   //Initialize the word to zero
+            while ((s = br.readLine()) != null)   //Reading Content from the file
+            {
+                words = s.split("\n");  //Split the word using space
+                for (String word : words) {
+                    if (word.equals(input))   //Search for the given word
+                    {
+                        count++;    //If Present increase the count by one
+                    }
+                }
+            }
+
+            if (count != 0)  //Check for count not equal to zero
+            {
+                System.out.println(input + " is in the file");
+            } else {
+                System.out.println(input + " is not in the file");
+            }
+        }
+        fr.close();
+    }
+
+
+    private static boolean isIdentifier(){
+        return true;
+    }
+    private static boolean isConstant(){
+        return true;
+    }
+    private static boolean isSeparator(){
+        return true;
+    }
+    private static boolean isOperator(){
+        return true;
+    }
+
+
+
+    public static void clasify(){
+
     }
 }

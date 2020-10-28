@@ -39,29 +39,33 @@ public class Main {
 
             if (count != 0)  //Check for count not equal to zero
             {
-                System.out.println(input + " is in the file");
+                System.out.println(input + " is in the token.in file");
             } else {
-                System.out.println(input + " is not in the file");
+                System.out.println(input + " is not in the token.in file");
             }
         }
         fr.close();
     }
 
 
-    private static boolean isIdentifier(){
-        return true;
+    public boolean isIdentifier(String token) {
+        return token.matches("([a-zA-Z])");
     }
+
+    public boolean isSeparator(char character) {
+        return character == '{' || character == '}' || character == '(' ||
+                character == ',' || character == ')' || character == ';' || character == ' ';
+    }
+
+    public boolean isOperator(String token) {
+        return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/") || token.equals("%") ||
+                token.equals("<") || token.equals("<=") || token.equals("==") || token.equals("!=") || token.equals(">") ||
+                token.equals(">=");
+    }
+
     private static boolean isConstant(){
         return true;
     }
-    private static boolean isSeparator(){
-        return true;
-    }
-    private static boolean isOperator(){
-        return true;
-    }
-
-
 
     public static void clasify(){
 

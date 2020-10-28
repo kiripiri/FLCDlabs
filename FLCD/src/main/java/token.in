@@ -1,5 +1,5 @@
-cin
-cout
+cin <<
+cout >>
 function
 if
 else
@@ -24,12 +24,16 @@ div
 :
 ?
 !
->>
-<<
 /
 %
 =
 ==
+!=
 +
 -
+*
+<
+<=
+>
+>=
 //

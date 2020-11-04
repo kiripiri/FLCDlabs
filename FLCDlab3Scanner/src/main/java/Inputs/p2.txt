@@ -1,0 +1,20 @@
+function main()
+{
+	define array a[];
+	define number len;
+	define number i;
+	define number sum = 0;
+
+	cin<< len;
+
+	for (i = 0; i < len; i++) { cin<< a[i]; }
+
+
+    while ( len > 0 )
+    {
+        sum = sum + a[len];
+        len = len - 1;
+    }
+
+    cout>> sum;
+}

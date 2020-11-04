@@ -1,0 +1,18 @@
+function main()
+{
+	define number a;
+	define number b;
+    define number c;
+    define number max = 0;
+
+    cin<< a;
+
+    //comment that should be ignored by the program
+
+    if ( a < b ) { max = b; }
+    else { max = a }
+
+    if ( c > max ) { c = max }
+
+    cout>> max;
+}
